@@ -20,9 +20,6 @@ matrix_mautrix_wsproxy_port: 29331
 
 matrix_mautrix_wsproxy_appservice_address: "http://matrix-mautrix-wsproxy:{{ matrix_mautrix_wsproxy_port }}"
 
-matrix_mautrix_wsproxy_hostname: ""
-matrix_mautrix_wsproxy_path_prefix: ""
-
 # The base container network. It will be auto-created by this role if it doesn't exist already.
 matrix_mautrix_wsproxy_container_network: matrix-mautrix-wsproxy
 
@@ -156,3 +153,10 @@ matrix_mautrix_wsproxy_syncproxy_database_port: 5432
 matrix_mautrix_wsproxy_syncproxy_database_name: 'matrix_mautrix_wsproxy_syncproxy'
 
 matrix_mautrix_signal_wsproxy_syncproxy_connection_string: 'postgres://{{ matrix_mautrix_wsproxy_syncproxy_database_username }}:{{ matrix_mautrix_wsproxy_syncproxy_database_password }}@{{ matrix_mautrix_wsproxy_syncproxy_database_hostname }}:{{ matrix_mautrix_wsproxy_syncproxy_database_port }}/{{ matrix_mautrix_wsproxy_syncproxy_database_name }}'
+
+# The hostname at which wsproxy is served.
+# Only works with with Traefik reverse-proxying.
+# For matrix-nginx-proxy, `matrix_server_fqn_mautrix_wsproxy` is used and this variable has no effect.
+matrix_mautrix_wsproxy_hostname: "{{ matrix_server_fqn_mautrix_wsproxy }}"
+
+matrix_mautrix_wsproxy_path_prefix: /
