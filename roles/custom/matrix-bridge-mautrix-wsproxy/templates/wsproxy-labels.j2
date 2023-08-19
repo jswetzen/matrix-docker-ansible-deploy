@@ -39,7 +39,7 @@ traefik.http.routers.matrix-mautrix-wsproxy.tls={{ matrix_mautrix_wsproxy_contai
 traefik.http.routers.matrix-mautrix-wsproxy.tls.certResolver={{ matrix_mautrix_wsproxy_container_labels_traefik_tls_certResolver }}
 {% endif %}
 
-traefik.http.services.matrix-sliding-sync.loadbalancer.server.port=8008
+traefik.http.services.matrix-mautrix-wsproxy.loadbalancer.server.port=29331
 {% endif %}
 
 {{ matrix_mautrix_wsproxy_container_labels_additional_labels }}
